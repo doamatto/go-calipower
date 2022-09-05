@@ -1,8 +1,7 @@
-package main
+package calipower
 
 import (
 	"encoding/json"
-	"errors"
 	"net/http"
 )
 
@@ -22,7 +21,6 @@ type ISOData struct {
 	CurrentRenewables                           int      `json:"currentRenewables"`
 	Limitation                                  string   `json:"Limitation"`
 	PSVERSION                                   string   `json:"PS_VERSION"`
-	AvailableCapacity                           int      `json:"AvailableCapacity"`
 	RenewablesPercent                           int      `json:"renewablesPercent"`
 	CurrentAdjustedUnloadedGenerationCapacityTS string   `json:"CurrentAdjustedUnloadedGenerationCapacityTS"`
 	TodayForecastPeakDemandTS                   string   `json:"todayForecastPeakDemandTS"`
@@ -50,63 +48,63 @@ type ISOData struct {
 	CurrentSystemDemandWithoutPump              int      `json:"CurrentSystemDemandWithoutPump"`
 }
 
-func GetPowerData() (ISOData, error) {
+func GetPowerData() (*ISOData, error) {
 	var err error
+	data := &ISOData{}
 
 	// Fetch JSON data from FlexAlert.org
 	res, err := http.Get("https://wwwmobile.caiso.com/outlook/SP/stats.txt")
 	if err != nil {
-		return _, err
+		return data, err
 	}
 
-	data := &ISOData{}
 	decoder := json.NewDecoder(res.Body)
 	err = decoder.Decode(data)
 	if err != nil {
-		return _, err
+		return data, err
 	}
-	return data, _
+	return data, nil
 }
 
 func GetCurDemand() (int, error) {
 	data, err := GetPowerData()
 	if err != nil {
-		return _, err
+		return 0, err
 	}
-	return data.CurrentSystemDemand
+	return data.CurrentSystemDemand, nil
 }
 func GetCurReserves() (int, error) {
 	data, err := GetPowerData()
 	if err != nil {
-		return _, err
+		return 0, err
 	}
-	return data.CurrentReserve
+	return data.CurrentReserve, nil
 }
 func GetCurCapacity() (int, error) {
 	data, err := GetPowerData()
 	if err != nil {
-		return _, err
+		return 0, err
 	}
-	return data.CurrentSystemDemandPlusUnloaded4H
+	return data.CurrentSystemDemandPlusUnloaded4H, nil
 }
 func GetCurAvailability1H() (int, error) {
 	data, err := GetPowerData()
 	if err != nil {
-		return _, err
+		return 0, err
 	}
-	return data.UnloadedCapacity1H
+	return data.UnloadedCapacity1H, nil
 }
 func GetCurAvailability4H() (int, error) {
 	data, err := GetPowerData()
 	if err != nil {
-		return _, err
+		return 0, err
 	}
-	return data.UnloadedCapacity4H
+	return data.UnloadedCapacity4H, nil
 }
 func GetCurAvailability() (string, error) {
 	data, err := GetPowerData()
 	if err != nil {
-		return _, err
+		return "", err
 	}
-	return data.UnloadedCapacity1H + " — " + data.UnloadedCapacity4H
+	return string(data.UnloadedCapacity1H) + " — " + string(data.UnloadedCapacity4H), nil
 }
