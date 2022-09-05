@@ -3,12 +3,22 @@ Get available capacity, estimates, and reserves from California ISO.
 
 ## Usage
 ```go
-data, err := GetPowerData() 
-if err != nil {
-	...
+package main
+
+import (
+	"fmt"
+	"log"
+	"strconv"
+
+	"github.com/doamatto/go-calipower"
+)
+
+func main() {
+	data, err := calipower.GetPowerData()
+	fmt.Printf(strconv.Itoa(data.CurrentReserve))
 }
-fmt.Printf("Current demand in California: %s", data.CurrentDemand)
 ```
+Better example can be found in `test/test.go`.
 
 ## Acknowledgements
 Data is collected from FlexAlert.org, a website run by the California ISO. Data is meant to be used within the allowance of the California ISO.
