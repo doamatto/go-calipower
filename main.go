@@ -50,7 +50,7 @@ type ISOData struct {
 	CurrentSystemDemandWithoutPump              int      `json:"CurrentSystemDemandWithoutPump"`
 }
 
-func getPowerData() (ISOData, error) {
+func GetPowerData() (ISOData, error) {
 	var err error
 
 	// Fetch JSON data from FlexAlert.org
@@ -68,43 +68,43 @@ func getPowerData() (ISOData, error) {
 	return data, _
 }
 
-func getCurDemand() (int, error) {
-	data, err := getPowerData()
+func GetCurDemand() (int, error) {
+	data, err := GetPowerData()
 	if err != nil {
 		return _, err
 	}
 	return data.CurrentSystemDemand
 }
-func getCurReserves() (int, error) {
-	data, err := getPowerData()
+func GetCurReserves() (int, error) {
+	data, err := GetPowerData()
 	if err != nil {
 		return _, err
 	}
 	return data.CurrentReserve
 }
-func getCurCapacity() (int, error) {
-	data, err := getPowerData()
+func GetCurCapacity() (int, error) {
+	data, err := GetPowerData()
 	if err != nil {
 		return _, err
 	}
 	return data.CurrentSystemDemandPlusUnloaded4H
 }
-func getCurAvailability1H() (int, error) {
-	data, err := getPowerData()
+func GetCurAvailability1H() (int, error) {
+	data, err := GetPowerData()
 	if err != nil {
 		return _, err
 	}
 	return data.UnloadedCapacity1H
 }
-func getCurAvailability4H() (int, error) {
-	data, err := getPowerData()
+func GetCurAvailability4H() (int, error) {
+	data, err := GetPowerData()
 	if err != nil {
 		return _, err
 	}
 	return data.UnloadedCapacity4H
 }
-func getCurAvailability() (string, error) {
-	data, err := getPowerData()
+func GetCurAvailability() (string, error) {
+	data, err := GetPowerData()
 	if err != nil {
 		return _, err
 	}

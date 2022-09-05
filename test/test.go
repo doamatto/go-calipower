@@ -8,7 +8,7 @@ import (
 )
 
 func main () {
-	data, err := getPowerData() 
+	data, err := GetPowerData() 
 	if err != nil {
 		log.Fatalf(err)
 	}

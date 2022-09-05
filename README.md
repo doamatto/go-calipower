@@ -3,7 +3,7 @@ Get available capacity, estimates, and reserves from California ISO.
 
 ## Usage
 ```go
-data, err := getPowerData() 
+data, err := GetPowerData() 
 if err != nil {
 	...
 }
