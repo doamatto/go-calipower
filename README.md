@@ -1,4 +1,4 @@
-# go-calipower
+# go-calipower [![Go Reference](https://pkg.go.dev/badge/github.com/doamatto/go-calipower.svg)](https://pkg.go.dev/github.com/doamatto/go-calipower)
 Get available capacity, estimates, and reserves from California ISO.
 
 ## Usage
