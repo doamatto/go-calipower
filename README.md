@@ -1,4 +1,9 @@
-# go-calipower [![Go Reference](https://pkg.go.dev/badge/github.com/doamatto/go-calipower.svg)](https://pkg.go.dev/github.com/doamatto/go-calipower)
+| :exclamation:  [This repository is now maintained on Sourcehut here.]([https://git.sr.ht/~maatt/nobs-uuid](https://git.sr.ht/~maatt/go-calipower))   |
+|------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+---
+
+# go-calipower [![Go Reference](https://pkg.go.dev/badge/git.sr.ht/~maatt/go-calipower.svg)](https://pkg.go.dev/git.sr.ht/~maatt/go-calipower)
 Get available capacity, estimates, and reserves from California ISO.
 
 ## Usage
@@ -10,7 +15,7 @@ import (
 	"log"
 	"strconv"
 
-	"github.com/doamatto/go-calipower"
+	"git.sr.ht/~maatt/go-calipower"
 )
 
 func main() {
