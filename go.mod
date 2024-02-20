@@ -1,3 +1,4 @@
+// Deprecated: use https://git.lmao.ch/doa/go-calipower instead.
 module github.com/doamatto/go-calipower
 
 go 1.18
