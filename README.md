@@ -1,5 +1,4 @@
-| :exclamation:  [This repository is now maintained on Sourcehut here.]([https://git.sr.ht/~maatt/nobs-uuid](https://git.sr.ht/~maatt/go-calipower))   |
-|------------------------------------------------------------------------------------------------------------------------------------------------------|
+[This repository is no longer on GitHub and can be found here.]([https://git.lmao.ch/doa/go-calipower]
 
 ---
 
@@ -15,7 +14,7 @@ import (
 	"log"
 	"strconv"
 
-	"git.sr.ht/~maatt/go-calipower"
+	"git.lmao.ch/doa/go-calipower"
 )
 
 func main() {
