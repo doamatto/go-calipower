@@ -1,4 +1,4 @@
-[This repository is no longer on GitHub and can be found here.]([https://git.lmao.ch/doa/go-calipower]
+[This repository is no longer on GitHub and can be found here.](https://git.lmao.ch/doa/go-calipower)
 
 ---
 
